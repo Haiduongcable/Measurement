@@ -28,17 +28,17 @@ services:
       LUNGMASK_URL: http://helper:8080/images
     expose:
       - "8080"
-  # chest-detection-0:
-  #   image: vinbrain.azurecr.io/chest-detection-cxx-0:release.latest
-  #   environment:
-  #     REDIS_HOST: redis
-  #     REDIS_PORT: 6379
-  #     PREDICT_PIPELINES: covid
-  #     HELPER_PIPELINES: all
-  #     LUNGMASK_URL: http://helper:8080/images
-  #     CHEST_SEG_URL: http://chest-segmentation:8080/images
-  #   expose:
-  #     - "8080"
+  chest-detection-0:
+    image: vinbrain.azurecr.io/chest-detection-cxx-0:release.latest
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PREDICT_PIPELINES: nofinding,mdevice,edema,cavitation,covid
+      HELPER_PIPELINES: all
+      LUNGMASK_URL: http://helper:8080/images
+      CHEST_SEG_URL: http://chest-segmentation:8080/images
+    expose:
+      - "8080"
   chest-detection-1:
     image: vinbrain.azurecr.io/chest-detection-cxx-1:release.latest
     environment:
@@ -56,7 +56,7 @@ services:
       - redis
       - helper
       - chest-segmentation
-      # - chest-detection-0
+      - chest-detection-0
       - chest-detection-1
     environment:
       REDIS_HOST: redis
