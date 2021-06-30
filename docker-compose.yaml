@@ -15,7 +15,7 @@ services:
     volumes:
       - 'redis_data:/bitnami/redis/data'
   helper:
-    image: vinbrain.azurecr.io/lung-segmentation:release.17
+    image: vinbrain.azurecr.io/lung-segmentation:release.23
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -23,7 +23,7 @@ services:
     expose:
       - "8080"
   chest-segmentation:
-    image: vinbrain.azurecr.io/chest-segmentation:develop.148
+    image: vinbrain.azurecr.io/chest-segmentation:release.l
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
