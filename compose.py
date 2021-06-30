@@ -20,7 +20,7 @@ os.environ["DOCKER_CLIENT_TIMEOUT"] = '5000'
 os.environ["COMPOSE_HTTP_TIMEOUT"] = '5000'
 os.environ["COMPOSE_MOUNT_DIR"] = '/home'
 os.system('docker login -u measurement-team -p gnqmriW5UEGqknEkxPZ7TubyVQd+4mxF vinbrain.azurecr.io')
-# os.system('wget https://raw.githubusercontent.com/Haiduongcable/Measurement/main/docker-compose.yaml -O docker-compose.yaml')
+os.system('wget https://raw.githubusercontent.com/Haiduongcable/Measurement/main/docker-compose.yaml -O docker-compose.yaml')
 print('compose up run')
 os.system('docker-compose up -d')
 print('compose up run finish')
@@ -28,7 +28,7 @@ time.sleep(400)
 
 
 def predict(image_path):
-    image_path = "/home/haiduong/Documents/VIN_BRAIN/Measurement/111b9edb2ed66ac22ae469d64c1e65e8d7ba733fe6c37638b928feec9d01fa2e.png"
+    image_path = "https://vbagenda.blob.core.windows.net/xray/64542.jpg"
 
     headers = {
         'Content-Type': 'application/json',
