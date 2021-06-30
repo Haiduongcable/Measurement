@@ -23,7 +23,7 @@ services:
     expose:
       - "8080"
   chest-segmentation:
-    image: vinbrain.azurecr.io/chest-segmentation:release.l
+    image: vinbrain.azurecr.io/chest-segmentation:release.latest
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
