@@ -70,7 +70,7 @@ services:
     volumes:
       - ${COMPOSE_MOUNT_DIR}:/home
 
-
+restart: always
 volumes:
   redis_data:
     driver: local
