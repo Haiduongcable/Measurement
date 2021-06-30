@@ -11,6 +11,7 @@ services:
       - "6379"
     ports:
       - '6379:6379'
+    restart: always
     volumes:
       - 'redis_data:/bitnami/redis/data'
   helper:
@@ -18,6 +19,7 @@ services:
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
+    restart: always
     expose:
       - "8080"
   chest-segmentation:
@@ -26,19 +28,21 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: 6379
       LUNGMASK_URL: http://helper:8080/images
+    restart: always
     expose:
       - "8080"
-  # chest-detection-0:
-  #   image: vinbrain.azurecr.io/chest-detection-cxx-0:release.latest
-  #   environment:
-  #     REDIS_HOST: redis
-  #     REDIS_PORT: 6379
-  #     PREDICT_PIPELINES: covid
-  #     HELPER_PIPELINES: all
-  #     LUNGMASK_URL: http://helper:8080/images
-  #     CHEST_SEG_URL: http://chest-segmentation:8080/images
-  #   expose:
-  #     - "8080"
+  chest-detection-0:
+    image: vinbrain.azurecr.io/chest-detection-cxx-0:release.latest
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PREDICT_PIPELINES: nofinding,mdevice,edema,cavitation,covid
+      HELPER_PIPELINES: all
+      LUNGMASK_URL: http://helper:8080/images
+      CHEST_SEG_URL: http://chest-segmentation:8080/images
+    restart: always
+    expose:
+      - "8080"
   chest-detection-1:
     image: vinbrain.azurecr.io/chest-detection-cxx-1:release.latest
     environment:
@@ -48,6 +52,7 @@ services:
       HELPER_PIPELINES: all
       LUNGMASK_URL: http://helper:8080/images
       CHEST_SEG_URL: http://chest-segmentation:8080/images
+    restart: always
     expose:
       - "8080"
   chest-ai-proxy:
@@ -56,7 +61,7 @@ services:
       - redis
       - helper
       - chest-segmentation
-      # - chest-detection-0
+      - chest-detection-0
       - chest-detection-1
     environment:
       REDIS_HOST: redis
@@ -67,6 +72,7 @@ services:
       CACHE_ENCODE: jpg
     ports:
       - "8080:8080"
+    restart: always
     volumes:
       - ${COMPOSE_MOUNT_DIR}:/home
 
