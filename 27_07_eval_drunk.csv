@@ -94,7 +94,7 @@ Climb&Drunk_Pub_N092,Non_Drunk
 Climb&Drunk_Pub_N093,Non_Drunk
 Climb&Drunk_Pub_N094,Non_Drunk
 Climb&Drunk_Pub_N095,Non_Drunk
-Climb&Drunk_Pub_N096,Drunk
+Climb&Drunk_Pub_N096,Non_Drunk
 Drunk_Pub_P001,Drunk
 Drunk_Pub_P002,Drunk
 Drunk_Pub_P003,Drunk
@@ -121,7 +121,7 @@ Drunk_Pub_P023,Non_Drunk
 Drunk_Pub_P024,Drunk
 Drunk_Pub_P025,Drunk
 Drunk_Pub_P026,Non_Drunk
-Drunk_Pub_P027,Non_Drunk
+Drunk_Pub_P027,Drunk
 Drunk_Pub_P028,Non_Drunk
 Drunk_Pub_P029,Drunk
 Drunk_Pub_P030,Non_Drunk
@@ -136,7 +136,7 @@ Drunk_Pub_P038,Drunk
 Drunk_Pub_P039,Drunk
 Drunk_Pub_P040,Drunk
 Drunk_Pub_P041,Non_Drunk
-Drunk_Pub_P042,Non_Drunk
+Drunk_Pub_P042,Drunk
 Drunk_Pub_P043,Drunk
 Drunk_Pub_P044,Non_Drunk
 Drunk_Pub_P045,Non_Drunk
@@ -152,6 +152,6 @@ Drunk_Pub_P054,Non_Drunk
 Drunk_Pub_P055,Non_Drunk
 Drunk_Pub_P056,Drunk
 Drunk_Pub_P057,Drunk
-Drunk_Pub_P058,Drunk
+Drunk_Pub_P058,Non_Drunk
 Drunk_Pub_P059,Drunk
 Drunk_Pub_P060,Drunk
